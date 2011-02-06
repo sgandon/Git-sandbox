@@ -1,1 +1,0 @@
-Trying to generate conflict branches with 2 dev creating their own homonym's branch separately
