@@ -12,7 +12,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -39,7 +38,6 @@ public class GWT_sb implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
-	@Override
 	public void onModuleLoad() {
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
@@ -74,13 +72,12 @@ public class GWT_sb implements EntryPoint {
 		dialogVPanel.add(textToServerLabel);
 		dialogVPanel.add(new HTML("<br><b>Server replies:</b>"));
 		dialogVPanel.add(serverResponseLabel);
-		dialogVPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
+		dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 		dialogVPanel.add(closeButton);
 		dialogBox.setWidget(dialogVPanel);
 
 		// Add a handler to close the DialogBox
 		closeButton.addClickHandler(new ClickHandler() {
-			@Override
 			public void onClick(ClickEvent event) {
 				dialogBox.hide();
 				sendButton.setEnabled(true);
@@ -93,7 +90,6 @@ public class GWT_sb implements EntryPoint {
 			/**
 			 * Fired when the user clicks on the sendButton.
 			 */
-			@Override
 			public void onClick(ClickEvent event) {
 				sendNameToServer();
 			}
@@ -101,7 +97,6 @@ public class GWT_sb implements EntryPoint {
 			/**
 			 * Fired when the user types in the nameField.
 			 */
-			@Override
 			public void onKeyUp(KeyUpEvent event) {
 				if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
 					sendNameToServer();
@@ -126,7 +121,6 @@ public class GWT_sb implements EntryPoint {
 				serverResponseLabel.setText("");
 				greetingService.greetServer(textToServer,
 						new AsyncCallback<String>() {
-							@Override
 							public void onFailure(Throwable caught) {
 								// Show the RPC error message to the user
 								dialogBox
@@ -138,7 +132,6 @@ public class GWT_sb implements EntryPoint {
 								closeButton.setFocus(true);
 							}
 
-							@Override
 							public void onSuccess(String result) {
 								dialogBox.setText("Remote Procedure Call");
 								serverResponseLabel
