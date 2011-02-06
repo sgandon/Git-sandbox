@@ -42,6 +42,7 @@ public class GWT_sb implements EntryPoint {
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
+		// dummy comments
 		final Label errorLabel = new Label();
 
 		// We can add style names to widgets
